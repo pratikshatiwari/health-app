@@ -1,6 +1,6 @@
 /**
  * @name dependencies
- * @description finds and lists referenced dependencies
+ * @description Finds and lists referenced dependencies
  * @kind problem
  * @problem.severity recommendation
  * @tags setup_check
@@ -8,6 +8,13 @@
  */
 
 import javascript
+
 from PackageDependencies deps, string name
-where deps.getADependency(name, _) and name.matches("dotenv", "nx") 
-select deps, "Dependency found'" + name + "'."
+where
+  deps.getADependency(name, _) and
+  (
+    name.matches("dotenv") or
+    name.matches("nx") or
+    name.matches("lodash")
+  )
+select deps, "Dependency found: '" + name + "'."
