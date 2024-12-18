@@ -9,5 +9,5 @@
 
 import javascript
 from PackageDependencies deps, string name
-where deps.getADependency(name, _) and name.matches("dotenv") 
+where deps.getADependency(name, _) and name.matches("dotenv", "nx") 
 select deps, "Dependency found'" + name + "'."
